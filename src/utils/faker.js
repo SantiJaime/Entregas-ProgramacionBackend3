@@ -31,14 +31,13 @@ export const generatePet = async (petsNumber) => {
   try {
     const pets = [];
     for (let i = 0; i < petsNumber; i++) {
-      const adopted = fakerDE.datatype.boolean();
       pets.push({
         _id: fakerDE.database.mongodbObjectId(),
         name: fakerDE.person.firstName(),
         specie: fakerDE.animal.dog(),
         birthDate: fakerDE.date.past(),
-        adopted,
-        owner: adopted ? fakerDE.database.mongodbObjectId() : null,
+        adopted: false,
+        owner: null,
         image: fakerDE.image.avatar(),
       });
     }
